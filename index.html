@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - To Do List</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✓
+            </div>
+
+            <span>TaskFlow</span>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="navigation">
+
+            <button class="nav-item active" data-filter="all">
+                <span>▦</span>
+                <span>All Tasks</span>
+            </button>
+
+            <button class="nav-item" data-filter="active">
+                <span>◷</span>
+                <span>Pending</span>
+            </button>
+
+            <button class="nav-item" data-filter="completed">
+                <span>✓</span>
+                <span>Completed</span>
+            </button>
+
+            <button class="nav-item" id="todayBtn">
+                <span>▣</span>
+                <span>Today</span>
+            </button>
+
+            <button class="nav-item" id="importantBtn">
+                <span>★</span>
+                <span>Important</span>
+            </button>
+
+        </nav>
+
+
+        <!-- Dark Mode -->
+
+        <div class="dark-mode">
+
+            <span>☾ Dark Mode</span>
+
+            <label class="switch">
+
+                <input type="checkbox"
+                       id="darkModeToggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <!-- Productivity Card -->
+
+        <div class="productivity-card">
+
+            <div class="rocket">
+                🚀
+            </div>
+
+            <h3>Stay Productive!</h3>
+
+            <p>
+                You're doing great!
+            </p>
+
+            <div class="heart">
+                ♥
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+
+        <!-- Top Header -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>My To-Do List</h1>
+
+                <p>
+                    Organize your day, one task at a time!
+                </p>
+
+            </div>
+
+
+            <div class="header-icons">
+
+                <button id="notificationBtn"
+                        class="icon-btn">
+                    🔔
+                    <span class="notification-count">0</span>
+                </button>
+
+                <div class="profile">
+                    👤
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= ADD TASK ================= -->
+
+        <section class="add-task-section">
+
+            <div class="task-input-wrapper">
+
+                <span class="input-icon">
+                    ✎
+                </span>
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter your task..."
+                >
+
+            </div>
+
+
+            <input
+                type="date"
+                id="taskDate"
+            >
+
+
+            <input
+                type="time"
+                id="taskTime"
+            >
+
+
+            <!-- Priority -->
+
+            <select id="taskPriority">
+
+                <option value="low">
+                    Low Priority
+                </option>
+
+                <option value="medium"
+                        selected>
+                    Medium Priority
+                </option>
+
+                <option value="high">
+                    High Priority
+                </option>
+
+            </select>
+
+
+            <button id="addTaskBtn"
+                    class="add-btn">
+
+                <span>+</span>
+                Add Task
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="statistics">
+
+            <div class="stat-card purple">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <h2 id="totalTasks">
+                        0
+                    </h2>
+
+                    <p>
+                        Total Tasks
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card orange">
+
+                <div class="stat-icon">
+                    ◷
+                </div>
+
+                <div>
+
+                    <h2 id="activeTasks">
+                        0
+                    </h2>
+
+                    <p>
+                        Pending
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card green">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h2 id="completedTasks">
+                        0
+                    </h2>
+
+                    <p>
+                        Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <div class="search-container">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks..."
+            >
+
+        </div>
+
+
+        <!-- ================= FILTERS ================= -->
+
+        <div class="filters">
+
+            <button class="filter-btn active"
+                    data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="active">
+                Pending
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="completed">
+                Completed
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="important">
+                ⭐ Important
+            </button>
+
+        </div>
+
+
+        <!-- ================= TASKS ================= -->
+
+        <section id="taskList">
+        </section>
+
+
+        <!-- Empty Message -->
+
+        <div id="emptyMessage"
+             class="empty-message">
+
+            <div class="empty-icon">
+                📝
+            </div>
+
+            <h3>
+                No tasks found
+            </h3>
+
+            <p>
+                Add a task to get started.
+            </p>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="footer-message">
+            ✨ Keep going! Complete your tasks and stay productive! ✨
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="./script.js"></script>
+
+</body>
+
+</html>
